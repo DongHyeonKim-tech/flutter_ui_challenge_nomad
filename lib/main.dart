@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
         // appBar: AppBar(
         //   title: Center(
@@ -21,18 +21,18 @@ class MyApp extends StatelessWidget {
         //   ),
         //   backgroundColor: Colors.blue,
         // ),
-        backgroundColor: const Color(0xFF181818),
+        backgroundColor: Color(0xFF181818),
         body: SingleChildScrollView(
           child: Padding(
             // padding: const EdgeInsets.all(10), // 전체
             // padding: EdgeInsets.only(right: 20), // 한 부분
             // padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20), // 수직, 수평
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 40),
-                const Row(
+                SizedBox(height: 40),
+                Row(
                   // row justify
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -59,30 +59,30 @@ class MyApp extends StatelessWidget {
                     )
                   ],
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 30,
                 ),
-                const Text(
+                Text(
                   'Total Balance',
                   style: TextStyle(
                     color: Colors.white30,
                     fontSize: 20,
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 10,
                 ),
-                const Text(
+                Text(
                   '\$5 194 482',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 32,
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 20,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     // Container는 HTML의 div와 비슷
@@ -96,12 +96,12 @@ class MyApp extends StatelessWidget {
                         textColor: Colors.white),
                   ],
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 30,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text('Wallets',
                         style: TextStyle(
@@ -115,32 +115,28 @@ class MyApp extends StatelessWidget {
                         )),
                   ],
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 20,
                 ),
-                const CurrencyCard(
+                CurrencyCard(
                   name: 'Euro',
                   code: 'EUR',
                   amount: '6 428',
                   icon: Icons.euro_rounded,
                 ),
-                Transform.translate(
-                  offset: const Offset(0, -20),
-                  child: const CurrencyCard(
+                CurrencyCard(
                     name: 'Bitcoin',
                     code: 'BTC',
                     amount: '9 785',
                     icon: Icons.currency_bitcoin,
                     isInverted: true,
-                  ),
-                ),
-                Transform.translate(
-                  offset: const Offset(0, -40),
-                  child: const CurrencyCard(
-                      name: 'Dollar',
-                      code: 'USD',
-                      amount: '428',
-                      icon: Icons.attach_money_outlined),
+                    order: 1),
+                CurrencyCard(
+                  name: 'Dollar',
+                  code: 'USD',
+                  amount: '428',
+                  icon: Icons.attach_money_outlined,
+                  order: 2,
                 )
               ],
             ),
